@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Pestana | Geography & Geospatial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde: #2D5A27; --laranja: #E67E22; --azul: #1B2631; --fundo: #F4F4F4;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--fundo); color: var(--azul); margin: 0; }
+        header { background: white; padding: 2rem; text-align: center; border-bottom: 3px solid var(--verde); }
+        h1 { font-family: 'Montserrat', sans-serif; letter-spacing: 2px; margin: 0; color: var(--azul); }
+        nav { margin-top: 1rem; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--azul); font-weight: bold; }
+        nav a:hover { color: var(--laranja); }
+        .hero { padding: 4rem 2rem; text-align: center; background: white; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 2rem; }
+        .card { background: white; border: 1px solid #ddd; padding: 1rem; transition: 0.3s; }
+        .card:hover { border-color: var(--laranja); transform: translateY(-5px); }
+        footer { text-align: center; padding: 2rem; font-size: 0.8rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PEDRO PESTANA</h1>
+        <nav>
+            <a href="#projetos">Projetos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2 style="color: var(--verde);">Explorando o mundo através de dados e mapas.</h2>
+        <p>Geógrafo focado em soluções geoespaciais e análise territorial.</p>
+    </section>
+
+    <section id="projetos" class="grid">
+        <div class="card"><h3>Projeto 1</h3><p>Análise de território X.</p></div>
+        <div class="card"><h3>Projeto 2</h3><p>Cartografia temática Y.</p></div>
+    </section>
+
+    <footer id="contacto">
+        <p>&copy; 2026 Pedro Pestana | pedropestana.com</p>
+    </footer>
+</body>
+</html>
