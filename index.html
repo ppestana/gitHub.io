@@ -3,28 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Pestana | Geography & Geospatial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>Pedro Pestana | Geografia & SIG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        /* DEFINIÇÕES DE CORES (PALETA VERDE E LARANJA) */
         :root {
-            --verde: #2D5A27; --laranja: #E67E22; --azul: #1B2631; --fundo: #F4F4F4;
+            --verde: #2D5A27;
+            --laranja: #E67E22;
+            --azul-escuro: #1B2631;
+            --cinza-claro: #F4F4F4;
+            --branco: #FFFFFF;
         }
-        body { font-family: 'Inter', sans-serif; background: var(--fundo); color: var(--azul); margin: 0; }
-        header { background: white; padding: 2rem; text-align: center; border-bottom: 3px solid var(--verde); }
-        h1 { font-family: 'Montserrat', sans-serif; letter-spacing: 2px; margin: 0; color: var(--azul); }
-        nav { margin-top: 1rem; }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--azul); font-weight: bold; }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--azul-escuro); background-color: var(--branco); line-height: 1.6; }
+
+        /* HEADER E LOGÓTIPO */
+        header { 
+            background: var(--branco); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 3px solid var(--verde);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo img { height: 60px; width: auto; display: block; }
+
+        nav a { margin-left: 20px; text-decoration: none; color: var(--azul-escuro); font-weight: 600; transition: 0.3s; }
         nav a:hover { color: var(--laranja); }
-        .hero { padding: 4rem 2rem; text-align: center; background: white; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 2rem; }
-        .card { background: white; border: 1px solid #ddd; padding: 1rem; transition: 0.3s; }
-        .card:hover { border-color: var(--laranja); transform: translateY(-5px); }
-        footer { text-align: center; padding: 2rem; font-size: 0.8rem; opacity: 0.7; }
+
+        /* SECÇÃO HERO (INTRODUÇÃO) */
+        .hero { 
+            padding: 100px 5%; 
+            text-align: center; 
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1526770146552-517a252d67d1?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: var(--verde); margin: 0; }
+        .hero p { font-size: 1.2rem; color: #555; max-width: 600px; margin: 20px auto; }
+
+        /* GALERIA DE PROJETOS (OPÇÃO A) */
+        .container { padding: 60px 5%; }
+        .section-title { text-align: center; font-family: 'Montserrat', sans-serif; margin-bottom: 40px; position: relative; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--laranja); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--branco); border-radius: 10px; overflow: hidden; border: 1px solid #eee; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-10px); border-color: var(--laranja); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
+        .card-content { padding: 20px; }
+        .card-content h3 { margin: 0 0 10px; color: var(--verde); }
+        .card-content p { font-size: 0.95rem; color: #666; }
+
+        /* CONTACTOS E REDES SOCIAIS (OPÇÃO B) */
+        .contact-section { background: var(--azul-escuro); color: white; padding: 80px 5%; text-align: center; }
+        .social-links { margin: 30px 0; }
+        .social-links a { color: white; font-size: 2.5rem; margin: 0 20px; text-decoration: none; transition: 0.3s; }
+        .social-links a:hover { color: var(--laranja); transform: scale(1.1); display: inline-block; }
+        
+        .btn-cv { 
+            background: var(--laranja); 
+            color: white; 
+            padding: 15px 35px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: inline-block; 
+            transition: 0.3s;
+            border: 2px solid var(--laranja);
+        }
+        .btn-cv:hover { background: transparent; color: var(--laranja); }
+
+        footer { text-align: center; padding: 30px; background: var(--cinza-claro); font-size: 0.9rem; color: #888; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            .logo { margin-bottom: 15px; }
+            nav a { margin: 0 10px; }
+            .hero h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>PEDRO PESTANA</h1>
+        <div class="logo">
+            <img src="logo.png" alt="Logo Pedro Pestana">
+        </div>
         <nav>
             <a href="#projetos">Projetos</a>
             <a href="#sobre">Sobre</a>
@@ -33,17 +104,52 @@
     </header>
 
     <section class="hero">
-        <h2 style="color: var(--verde);">Explorando o mundo através de dados e mapas.</h2>
-        <p>Geógrafo focado em soluções geoespaciais e análise territorial.</p>
+        <h1>Pedro Pestana</h1>
+        <p>Geógrafo focado em Soluções Geoespaciais, SIG e Análise de Território.</p>
     </section>
 
-    <section id="projetos" class="grid">
-        <div class="card"><h3>Projeto 1</h3><p>Análise de território X.</p></div>
-        <div class="card"><h3>Projeto 2</h3><p>Cartografia temática Y.</p></div>
+    <div id="projetos" class="container">
+        <h2 class="section-title">Projetos em Destaque</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="mapa1.jpg" alt="Projeto SIG">
+                <div class="card-content">
+                    <h3>Análise SIG Territorial</h3>
+                    <p>Descrição do seu primeiro grande projeto geográfico aqui.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="mapa2.jpg" alt="Cartografia">
+                <div class="card-content">
+                    <h3>Cartografia Digital</h3>
+                    <p>Visualização de dados complexos através de mapas temáticos.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="mapa3.jpg" alt="Planeamento">
+                <div class="card-content">
+                    <h3>Ordenamento do Território</h3>
+                    <p>Estudos de impacto e planeamento urbano sustentável.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contacto" class="contact-section">
+        <h2>Vamos ligar-nos?</h2>
+        <p>Sinta-se à vontade para me contactar para colaborações ou propostas profissionais.</p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/SEU-LINK" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:exemplo@pedropestana.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <a href="curriculo.pdf" class="btn-cv" target="_blank">Descarregar Currículo PDF</a>
     </section>
 
-    <footer id="contacto">
-        <p>&copy; 2026 Pedro Pestana | pedropestana.com</p>
+    <footer>
+        <p>&copy; 2026 Pedro Pestana | Registado em pedropestana.com</p>
     </footer>
+
 </body>
 </html>
