@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles & Research — Pedro Pestana</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">PP</span>
+                <span>Pedro Pestana</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="articles.html" class="active">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1 class="page-title">Articles & Research</h1>
+            <p class="page-subtitle">Technical writings, research summaries, and insights on geospatial systems, data engineering, and spatial analysis methodologies.</p>
+        </header>
+
+        <div class="articles-grid">
+            <!-- Article 1 - Featured -->
+            <article class="article-card featured">
+                <div class="article-badge">Featured</div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Spatial Data Engineering</span>
+                        <span class="article-date">March 2024</span>
+                    </div>
+                    <h2 class="article-title">Designing Scalable Geospatial Data Pipelines</h2>
+                    <p class="article-excerpt">An architectural overview of building robust ETL pipelines for spatial data, covering data ingestion, transformation, quality assurance, and deployment strategies for handling terabyte-scale geospatial datasets.</p>
+                    <div class="article-tags">
+                        <span class="tag">PostGIS</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Data Pipelines</span>
+                        <span class="tag">Cloud Architecture</span>
+                    </div>
+                    <a href="article-details.html?article=1" class="btn-text">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="article-visual">
+                    <div class="placeholder-visual">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">GIS Automation</span>
+                        <span class="article-date">January 2024</span>
+                        <span class="article-readtime">8 min read</span>
+                    </div>
+                    <h2 class="article-title">Automating QGIS Workflows with Python</h2>
+                    <p class="article-subtitle">A practical guide to scripting repetitive GIS tasks in QGIS using PyQGIS</p>
+                    <p class="article-excerpt">A practical guide to scripting repetitive GIS tasks in QGIS using PyQGIS, with examples of batch processing, custom plugin development, and integration with external data sources.</p>
+                    <div class="article-tags">
+                        <span class="tag">QGIS</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">PyQGIS</span>
+                    </div>
+                    <a href="article-details.html?article=2" class="btn-text">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="article-card">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Remote Sensing</span>
+                        <span class="article-date">November 2023</span>
+                        <span class="article-readtime">10 min read</span>
+                    </div>
+                    <h2 class="article-title">Urban Growth Analysis with Google Earth Engine</h2>
+                    <p class="article-subtitle">Leveraging Landsat and Sentinel imagery to analyze urban expansion patterns over time</p>
+                    <p class="article-excerpt">Leveraging Landsat and Sentinel imagery to analyze urban expansion patterns over time, with code examples for NDVI calculation, change detection, and visualization of results.</p>
+                    <div class="article-tags">
+                        <span class="tag">Google Earth Engine</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Remote Sensing</span>
+                        <span class="tag">Urban Analysis</span>
+                    </div>
+                    <a href="article-details.html?article=3" class="btn-text">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="article-card">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Spatial Databases</span>
+                        <span class="article-date">September 2023</span>
+                        <span class="article-readtime">15 min read</span>
+                    </div>
+                    <h2 class="article-title">Advanced Spatial Queries in PostGIS</h2>
+                    <p class="article-subtitle">Exploring advanced PostGIS functionality for complex spatial analysis</p>
+                    <p class="article-excerpt">Exploring advanced PostGIS functionality for complex spatial analysis, including nearest neighbor searches, network routing, spatial joins at scale, and performance optimization techniques.</p>
+                    <div class="article-tags">
+                        <span class="tag">PostGIS</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Spatial SQL</span>
+                        <span class="tag">Performance</span>
+                    </div>
+                    <a href="article-details.html?article=4" class="btn-text">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="article-card">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Web Mapping</span>
+                        <span class="article-date">July 2023</span>
+                        <span class="article-readtime">9 min read</span>
+                    </div>
+                    <h2 class="article-title">Building Interactive Geospatial Dashboards</h2>
+                    <p class="article-subtitle">Architectural patterns for creating performant web mapping applications with real-time data visualization</p>
+                    <p class="article-excerpt">Architectural patterns for creating performant web mapping applications with real-time data visualization, focusing on Leaflet/Mapbox integration, data streaming, and responsive design.</p>
+                    <div class="article-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Leaflet</span>
+                        <span class="tag">Web GIS</span>
+                        <span class="tag">Data Visualization</span>
+                    </div>
+                    <a href="article-details.html?article=5" class="btn-text">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <section class="articles-sidebar-content">
+            <h2>Research & Publication Focus</h2>
+            <div class="research-focus">
+                <div class="focus-area">
+                    <h3><i class="fas fa-bullseye"></i> Research Interests</h3>
+                    <ul class="research-list">
+                        <li>Spatial Data Quality & Uncertainty</li>
+                        <li>Real-time Geospatial Processing</li>
+                        <li>Machine Learning for Remote Sensing</li>
+                        <li>Edge Computing for Field GIS</li>
+                        <li>3D/4D Geospatial Visualization</li>
+                        <li>Spatial Data Governance</li>
+                    </ul>
+                </div>
+                
+                <div class="focus-area">
+                    <h3><i class="fas fa-book"></i> Publication Venues</h3>
+                    <ul class="venue-list">
+                        <li>International Journal of GIS</li>
+                        <li>Transactions in GIS</li>
+                        <li>Geospatial World</li>
+                        <li>Towards Data Science</li>
+                        <li>GIS Lounge</li>
+                    </ul>
+                </div>
+                
+                <div class="focus-area">
+                    <h3><i class="fas fa-pen-fancy"></i> Writing Philosophy</h3>
+                    <p>I focus on practical, implementable content that bridges theoretical concepts with real-world application, emphasizing reproducible examples and clear architectural guidance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">PP</span>
+                        <span>Pedro Pestana</span>
+                    </a>
+                    <p class="footer-tagline">Geospatial Systems & Data Engineering</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Pedro Pestana. All rights reserved.</p>
+                <p>This website is built with vanilla HTML, CSS, and JavaScript.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize current year and navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update current year in footer
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Initialize navigation
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    menuToggle.setAttribute('aria-expanded', 
+                        navMenu.classList.contains('active').toString());
+                });
+                
+                // Close menu when clicking a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
