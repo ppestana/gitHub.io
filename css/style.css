@@ -61,11 +61,10 @@ html {
 }
 
 body {
-    background-color: #ffffff;
-    /* Imagem de curvas de nível subtis */
+    background-color: #f1f5f9; /* Um cinza azulado muito claro para destacar as linhas brancas */
     background-image: url("https://www.transparenttextures.com/patterns/topography.png");
     background-attachment: fixed;
-    opacity: 0.95; 
+    /* Remove a linha da opacity se quiseres que o texto fique nítido */
 }
 
 /* Container utility */
