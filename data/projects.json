@@ -1,0 +1,76 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Urban Growth Analysis Platform",
+      "description": "A cloud-based platform for analyzing urban expansion patterns using satellite imagery and machine learning.",
+      "details": "Built with Google Earth Engine for processing, PostgreSQL/PostGIS for spatial data storage, and a React frontend for visualization. Processes terabytes of Landsat and Sentinel imagery to detect urban changes over time.",
+      "category": "spatial-analysis",
+      "technologies": ["Python", "Google Earth Engine", "PostGIS", "React", "FastAPI"],
+      "year": "2023",
+      "featured": true,
+      "link": "https://example.com/urban-growth",
+      "github": "https://github.com/example/urban-growth"
+    },
+    {
+      "id": 2,
+      "title": "Geospatial ETL Pipeline Framework",
+      "description": "A modular framework for building scalable spatial data pipelines with automatic quality assurance.",
+      "details": "Designed to handle diverse geospatial data formats (Shapefiles, GeoJSON, GeoTIFF) with automated schema detection, transformation, and validation. Includes monitoring dashboard and error handling.",
+      "category": "data-pipeline",
+      "technologies": ["Python", "Apache Airflow", "PostGIS", "Docker", "AWS S3"],
+      "year": "2023",
+      "featured": true,
+      "link": "https://example.com/geospatial-etl",
+      "github": "https://github.com/example/geospatial-etl"
+    },
+    {
+      "id": 3,
+      "title": "Agricultural Monitoring System",
+      "description": "Real-time crop health monitoring using satellite data and custom vegetation indices.",
+      "details": "Integrates Sentinel-2 imagery with ground sensor data to provide farmers with actionable insights on crop health, irrigation needs, and yield predictions.",
+      "category": "web-mapping",
+      "technologies": ["JavaScript", "Leaflet", "Python", "PostGIS", "STAC API"],
+      "year": "2022",
+      "featured": true,
+      "link": "https://example.com/agri-monitor",
+      "github": "https://github.com/example/agri-monitor"
+    },
+    {
+      "id": 4,
+      "title": "QGIS Automation Toolkit",
+      "description": "A collection of Python scripts and plugins for automating repetitive QGIS workflows.",
+      "details": "Includes tools for batch processing, data validation, report generation, and integration with external APIs. Reduces manual processing time by 80% for common GIS tasks.",
+      "category": "automation",
+      "technologies": ["Python", "PyQGIS", "QGIS", "PostgreSQL"],
+      "year": "2022",
+      "featured": false,
+      "link": "https://example.com/qgis-automation",
+      "github": "https://github.com/example/qgis-automation"
+    },
+    {
+      "id": 5,
+      "title": "Disaster Response Mapping System",
+      "description": "Real-time mapping platform for emergency response teams during natural disasters.",
+      "details": "Integrates live sensor data, drone imagery, and crowd-sourced reports to create dynamic situation maps for first responders. Features offline capability and low-bandwidth optimization.",
+      "category": "web-mapping",
+      "technologies": ["JavaScript", "Mapbox GL", "Node.js", "MongoDB", "WebSockets"],
+      "year": "2021",
+      "featured": false,
+      "link": "https://example.com/disaster-maps",
+      "github": "https://github.com/example/disaster-maps"
+    },
+    {
+      "id": 6,
+      "title": "Spatial Data Quality Dashboard",
+      "description": "Interactive dashboard for monitoring and improving spatial data quality across an organization.",
+      "details": "Tracks data completeness, positional accuracy, attribute validity, and temporal relevance. Provides automated alerts and recommendations for data improvement.",
+      "category": "saas",
+      "technologies": ["Vue.js", "Python", "PostGIS", "Redis", "Django"],
+      "year": "2021",
+      "featured": false,
+      "link": "https://example.com/data-quality",
+      "github": "https://github.com/example/data-quality"
+    }
+  ]
+}

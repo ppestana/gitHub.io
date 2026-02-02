@@ -1,0 +1,179 @@
+{
+  "categories": [
+    {
+      "id": "gis",
+      "name": "GIS & Geospatial",
+      "skills": [
+        {
+          "name": "QGIS",
+          "proficiency": "expert",
+          "experience": "8+ years"
+        },
+        {
+          "name": "ArcGIS Pro",
+          "proficiency": "advanced",
+          "experience": "6+ years"
+        },
+        {
+          "name": "Google Earth Engine",
+          "proficiency": "expert",
+          "experience": "5+ years"
+        },
+        {
+          "name": "Remote Sensing",
+          "proficiency": "advanced",
+          "experience": "7+ years"
+        },
+        {
+          "name": "Spatial Analysis",
+          "proficiency": "expert",
+          "experience": "8+ years"
+        },
+        {
+          "name": "Cartography",
+          "proficiency": "advanced",
+          "experience": "6+ years"
+        }
+      ]
+    },
+    {
+      "id": "programming",
+      "name": "Programming Languages",
+      "skills": [
+        {
+          "name": "Python",
+          "proficiency": "expert",
+          "experience": "8+ years"
+        },
+        {
+          "name": "R",
+          "proficiency": "advanced",
+          "experience": "5+ years"
+        },
+        {
+          "name": "JavaScript/TypeScript",
+          "proficiency": "advanced",
+          "experience": "6+ years"
+        },
+        {
+          "name": "SQL",
+          "proficiency": "expert",
+          "experience": "8+ years"
+        },
+        {
+          "name": "Bash/Shell",
+          "proficiency": "intermediate",
+          "experience": "4+ years"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "name": "Data & Databases",
+      "skills": [
+        {
+          "name": "PostgreSQL/PostGIS",
+          "proficiency": "expert",
+          "experience": "7+ years"
+        },
+        {
+          "name": "Spatial SQL",
+          "proficiency": "expert",
+          "experience": "7+ years"
+        },
+        {
+          "name": "GeoPandas",
+          "proficiency": "expert",
+          "experience": "5+ years"
+        },
+        {
+          "name": "GDAL/OGR",
+          "proficiency": "advanced",
+          "experience": "6+ years"
+        },
+        {
+          "name": "GeoServer",
+          "proficiency": "intermediate",
+          "experience": "3+ years"
+        },
+        {
+          "name": "STAC",
+          "proficiency": "intermediate",
+          "experience": "2+ years"
+        }
+      ]
+    },
+    {
+      "id": "systems",
+      "name": "Systems & Architecture",
+      "skills": [
+        {
+          "name": "SaaS Architecture",
+          "proficiency": "advanced",
+          "experience": "5+ years"
+        },
+        {
+          "name": "Cloud Platforms (AWS/GCP)",
+          "proficiency": "advanced",
+          "experience": "4+ years"
+        },
+        {
+          "name": "Docker & Containerization",
+          "proficiency": "advanced",
+          "experience": "4+ years"
+        },
+        {
+          "name": "REST/GraphQL APIs",
+          "proficiency": "advanced",
+          "experience": "5+ years"
+        },
+        {
+          "name": "Data Pipeline Design",
+          "proficiency": "expert",
+          "experience": "6+ years"
+        },
+        {
+          "name": "System Integration",
+          "proficiency": "advanced",
+          "experience": "5+ years"
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Tools & Platforms",
+      "skills": [
+        {
+          "name": "Git & GitHub/GitLab",
+          "proficiency": "expert",
+          "experience": "8+ years"
+        },
+        {
+          "name": "Linux/Unix",
+          "proficiency": "advanced",
+          "experience": "7+ years"
+        },
+        {
+          "name": "Jupyter Notebooks",
+          "proficiency": "expert",
+          "experience": "6+ years"
+        },
+        {
+          "name": "Apache Airflow",
+          "proficiency": "intermediate",
+          "experience": "3+ years"
+        },
+        {
+          "name": "CI/CD Pipelines",
+          "proficiency": "advanced",
+          "experience": "4+ years"
+        },
+        {
+          "name": "Agile/Scrum Methodologies",
+          "proficiency": "advanced",
+          "experience": "5+ years"
+        }
+      ]
+    }
+  ]
+}

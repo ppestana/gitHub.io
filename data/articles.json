@@ -1,1 +1,54 @@
-/
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Designing Scalable Geospatial Data Pipelines",
+      "subtitle": "An architectural overview of building robust ETL pipelines for spatial data",
+      "category": "Spatial Data Engineering",
+      "date": "March 2024",
+      "readtime": "12 min read",
+      "tags": ["PostGIS", "Python", "Data Pipelines", "Cloud Architecture", "Spatial Analysis", "ETL"],
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Automating QGIS Workflows with Python",
+      "subtitle": "A practical guide to scripting repetitive GIS tasks in QGIS using PyQGIS",
+      "category": "GIS Automation",
+      "date": "January 2024",
+      "readtime": "8 min read",
+      "tags": ["QGIS", "Python", "Automation", "PyQGIS"],
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Urban Growth Analysis with Google Earth Engine",
+      "subtitle": "Leveraging Landsat and Sentinel imagery to analyze urban expansion patterns over time",
+      "category": "Remote Sensing",
+      "date": "November 2023",
+      "readtime": "10 min read",
+      "tags": ["Google Earth Engine", "JavaScript", "Remote Sensing", "Urban Analysis"],
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Advanced Spatial Queries in PostGIS",
+      "subtitle": "Exploring advanced PostGIS functionality for complex spatial analysis",
+      "category": "Spatial Databases",
+      "date": "September 2023",
+      "readtime": "15 min read",
+      "tags": ["PostGIS", "PostgreSQL", "Spatial SQL", "Performance"],
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Building Interactive Geospatial Dashboards",
+      "subtitle": "Architectural patterns for creating performant web mapping applications",
+      "category": "Web Mapping",
+      "date": "July 2023",
+      "readtime": "9 min read",
+      "tags": ["JavaScript", "Leaflet", "Web GIS", "Data Visualization"],
+      "featured": false
+    }
+  ]
+}
