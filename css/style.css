@@ -1,13 +1,4 @@
-/* Importação da fonte para garantir que não volta ao Times New Roman */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-:root {
-    --color-primary: #2563eb;
-    --color-dark: #1e293b;
-    --font-sans: 'Inter', -apple-system, sans-serif;
-    --radius-md: 0.5rem;
-}
-
+/* Limpeza de Cache e Definições de Base */
 * {
     margin: 0;
     padding: 0;
@@ -15,59 +6,55 @@
 }
 
 body {
-    font-family: var(--font-sans);
+    /* Garante a fonte Inter (já carregada no seu HTML) */
+    font-family: 'Inter', sans-serif !important;
     line-height: 1.6;
-    color: var(--color-dark);
+    color: #1e293b;
     
-    /* BACKGROUND CARTOGRÁFICO */
+    /* BACKGROUND CONFIGURATION */
     background-color: #e2e8f0 !important; 
     background-image: url("https://www.transparenttextures.com/patterns/topography.png") !important;
     background-attachment: fixed !important;
+    background-repeat: repeat !important;
 }
 
-/* TORNAR AS SECÇÕES TRANSPARENTES PARA VER O MAPA */
+/* TORNAR AS SECÇÕES TRANSPARENTES PARA O MAPA APARECER */
 .navbar, 
-.hero, 
 section, 
+.hero, 
 .expertise, 
+.footer,
 .container {
     background-color: transparent !important;
 }
 
-/* DAR DESTAQUE AOS CARTÕES PARA LEITURA FÁCIL */
+/* MANTER O TEXTO LEGÍVEL COM FUNDO SEMI-TRANSPARENTE */
 .expertise-card, 
-.hero-content {
-    background-color: rgba(255, 255, 255, 0.9); /* Branco semi-transparente */
-    padding: 2.5rem;
-    border-radius: var(--radius-md);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+.hero-content,
+.project-card {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    padding: 2rem;
+    border-radius: 8px;
     margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* AJUSTES DE NAVEGAÇÃO */
+/* REGRAS BÁSICAS DE NAVEGAÇÃO */
 .navbar {
+    display: flex;
+    justify-content: space-around;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 20px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--color-dark);
+    color: #1e293b;
     font-weight: 600;
 }
-
-/* FOOTER COM FUNDO ESCURO PARA CONTRASTE */
-.footer {
-    background-color: #1e293b;
-    color: white;
-    padding: 3rem 0;
-    margin-top: 4rem;
-}
-
-.footer a { color: #cbd5e1; text-decoration: none; }
