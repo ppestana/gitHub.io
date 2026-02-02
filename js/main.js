@@ -77,11 +77,6 @@ const FALLBACK_DATA = {
                     "experience": "8+ years"
                 },
                 {
-                    "name": "ArcGIS Pro",
-                    "proficiency": "advanced",
-                    "experience": "6+ years"
-                },
-                {
                     "name": "Google Earth Engine",
                     "proficiency": "expert",
                     "experience": "5+ years"
