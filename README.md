@@ -1,2 +1,2 @@
 # gitHub.io
-Site pessoal e portfólio de Pedro Pestana - Geografia e Geospacial.
+Personal website and portfolio of Pedro Pestana - Geography and Geospatial Studies.
