@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects—Pedro Pestana-Geospatial Systems & Data Engineering</title>
+    <title>Home-Pedro Pestana—Geospatial Systems & Data Engineering</title>
+
     <!-- CRITICAL: Load cookie consent CSS BEFORE any analytics -->
     <link rel="stylesheet" href="css/cookie-consent.css">
     
-    <!-- Your other stylesheets -->
+    <!-- Main Styles -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
@@ -25,10 +28,10 @@
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="skills.html">Skills</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="articles.html">Articles</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -36,71 +39,69 @@
     </nav>
 
     <main class="container">
-        <header class="page-header">
-            <h1 class="page-title">Project Portfolio</h1>
-            <p class="page-subtitle">A selection of geospatial systems, data engineering projects, and technical solutions I've designed and implemented.</p>
-            
-            <div class="project-filters">
-                <div class="filter-group">
-                    <label for="technology-filter">Filter by Technology:</label>
-                    <select id="technology-filter" class="filter-select">
-                        <option value="all">All Technologies</option>
-                        <option value="python">Python</option>
-                        <option value="postgis">PostGIS</option>
-                        <option value="gee">Google Earth Engine</option>
-                        <option value="qgis">QGIS</option>
-                        <option value="javascript">JavaScript</option>
-                        <option value="r">R</option>
-                    </select>
+        <section class="hero right-photo">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="highlight">Geospatial Systems</span> & 
+                    <span class="highlight">Data Engineering</span>
+                </h1>
+                <p class="hero-subtitle">
+                    I design, build, and automate spatial data systems that transform complex geographic information into actionable insights.
+                </p>
+                <div class="hero-actions">
+                    <a href="projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="skills.html" class="btn btn-secondary">Explore Skills</a>
+                    <a href="contact.html" class="btn btn-outline">Get in Touch</a>
                 </div>
-                <div class="filter-group">
-                    <label for="category-filter">Filter by Category:</label>
-                    <select id="category-filter" class="filter-select">
-                        <option value="all">All Categories</option>
-                        <option value="data-pipeline">Data Pipeline</option>
-                        <option value="spatial-analysis">Spatial Analysis</option>
-                        <option value="web-mapping">Web Mapping</option>
-                        <option value="automation">Automation</option>
-                        <option value="saas">SaaS Platform</option>
-                    </select>
-                </div>
-                <button id="clear-filters" class="btn-text">Clear Filters</button>
             </div>
-        </header>
+            <div class="hero-photo-side">
+                <div class="profile-photo-frame">
+                    <img src="assets/profile.jpg" alt="Pedro Pestana" class="profile-photo">
+                </div>
+            </div>
+        </section>
 
-        <div id="projects-container" class="projects-grid detailed">
-            <!-- Projects will be loaded dynamically from JSON -->
-            <div class="loading">Loading projects...</div>
-        </div>
+        <section class="expertise">
+            <h2 class="section-title">Areas of Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>GIS & Spatial Analysis</h3>
+                    <p>Advanced geospatial analysis, cartography, and remote sensing using QGIS, ArcGIS, and Google Earth Engine.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Geospatial Data Engineering</h3>
+                    <p>Design and implementation of spatial data pipelines, ETL processes, and PostgreSQL/PostGIS databases.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Spatial Programming</h3>
+                    <p>Development of custom geospatial tools and automation scripts in Python, R, and JavaScript.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>SaaS Architecture</h3>
+                    <p>Design and deployment of scalable geospatial SaaS platforms and web mapping applications.</p>
+                </div>
+            </div>
+        </section>
 
-        <section class="project-methodology">
-            <h2>Project Development Methodology</h2>
-            <div class="methodology-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Problem Definition</h3>
-                    <p>Clearly understanding the spatial challenge, user requirements, and success metrics before any technical work begins.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Data Assessment</h3>
-                    <p>Evaluating available data sources, quality, formats, and identifying gaps that need to be addressed.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Architecture Design</h3>
-                    <p>Designing system architecture, data models, processing workflows, and visualization strategies.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Iterative Development</h3>
-                    <p>Building, testing, and refining components with regular stakeholder feedback and validation.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Deployment & Documentation</h3>
-                    <p>Deploying the solution and creating comprehensive documentation for users and maintainers.</p>
-                </div>
+        <section class="featured-projects">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <a href="projects.html" class="btn-text">View all projects <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div id="featured-projects-container" class="projects-grid">
+                <div class="loading">Loading projects...</div>
             </div>
         </section>
     </main>
@@ -150,6 +151,7 @@
         </div>
     </footer>
 
+    <!-- Main JS -->
     <script src="js/main.js"></script>
     
     <!-- CRITICAL: Load cookie consent at the END, BEFORE closing </body> tag -->
@@ -168,10 +170,9 @@
             }
         });
         
-        // Load projects on page load
         document.addEventListener('DOMContentLoaded', function() {
-            loadProjects();
-            setupProjectFilters();
+            loadFeaturedProjects();
+            document.getElementById('current-year').textContent = new Date().getFullYear();
         });
     </script>
 </body>

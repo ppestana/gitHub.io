@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedro Pestana—Geospatial Systems & Data Engineering</title>
+    <!-- CRITICAL: Load this BEFORE any analytics or tracking -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
+    <!-- Your other stylesheets -->
+     <!----
+    <link rel="stylesheet" href="css/style.css">
+    <-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
@@ -666,6 +672,7 @@
         setInterval(updateCountdown, 1000);
         
         // Newsletter form submission
+        /*
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('.newsletter-input').value;
@@ -678,7 +685,8 @@
                 alert('Please enter a valid email address.');
             }
         });
-        
+        */
+
         // Smooth animations for feature cards
         document.querySelectorAll('.feature-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
@@ -708,6 +716,18 @@
         }
         
         setInterval(animateProgressBar, 200);
+    </script>
+    <!-- At the very end, BEFORE closing </body> tag -->
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        const cookieConsent = new CookieConsentManager({
+            analyticsScripts: [
+                {
+                    type: 'gtag',
+                    id: 'G-XXXXXXXXXX' // Replace with your GA4 tracking ID
+                }
+            ]
+        });
     </script>
 </body>
 </html>
