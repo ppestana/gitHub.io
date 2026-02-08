@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Details—Pedro Pestana-Geospatial Systems & Data Engineering</title>
+    <!-- CRITICAL: Load cookie consent CSS BEFORE any analytics -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
+    
+    <!-- Your other stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +17,10 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Pedro Pestana</a>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">PP</span>
+                <span>Pedro Pestana</span>
+            </a>
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
             </button>
@@ -321,7 +328,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">Pedro Pestana</a>
+                    <a href="index.html" class="logo">
+                <span class="logo-icon">PP</span>
+                <span>Pedro Pestana</span>
+            </a>
                     <p class="footer-tagline">Geospatial Systems & Data Engineering</p>
                 </div>
                 <div class="footer-links">
@@ -341,6 +351,12 @@
                             <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
                             <li><a href="https://github.com" target="_blank">GitHub</a></li>
                             <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="#" data-cookie-settings>Cookie Settings</a></li>
                         </ul>
                     </div>
                 </div>
@@ -354,5 +370,22 @@
 
     <script src="js/main.js"></script>
     <script src="js/project-details.js"></script>
+    
+    <!-- CRITICAL: Load cookie consent at the END, BEFORE closing </body> tag -->
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        // Initialize cookie consent manager
+        const cookieConsent = new CookieConsentManager({
+            analyticsScripts: [
+                {
+                    type: 'gtag',
+                    id: 'G-XXXXXXXXXX' // Replace with your actual Google Analytics ID
+                }
+            ],
+            onConsentChange: function(preferences) {
+                console.log('Cookie preferences updated:', preferences);
+            }
+        });
+    </script>
 </body>
 </html>
