@@ -858,7 +858,7 @@ function createArticleCard(article, isFeatured = false) {
             </div>
             <div class="article-visual">
                 <div class="placeholder-visual">
-                    <i class="fas fa-chart-network"></i>
+                    <i class="fas fa-map-marked-alt"></i>
                 </div>
             </div>
         `;

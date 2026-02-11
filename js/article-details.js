@@ -25,7 +25,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize table of contents highlighting
     initializeTocHighlighting();
+    
+    // CRITICAL: Remove any featured badge that might appear on detail pages
+    removeFeaturedBadge();
 });
+
+/**
+ * Remove any Featured badge from article detail pages
+ * This ensures the badge only appears on the articles listing page
+ */
+function removeFeaturedBadge() {
+    // Run immediately
+    const badge = document.querySelector('.article-badge');
+    if (badge) {
+        badge.remove();
+    }
+    
+    // Also run after a short delay to catch any dynamically added badges
+    setTimeout(() => {
+        const delayedBadge = document.querySelector('.article-badge');
+        if (delayedBadge) {
+            delayedBadge.remove();
+        }
+    }, 100);
+}
 
 /**
  * Load article details based on ID
@@ -33,28 +56,27 @@ document.addEventListener('DOMContentLoaded', function() {
 async function loadArticleDetails(articleId) {
     try {
         let articleData;
-        
-        // Try to load from JSON file
-        if (window.location.protocol !== 'file:') {
-            const response = await fetch('data/articles.json');
-            if (response.ok) {
-                const data = await response.json();
-                articleData = data.articles.find(a => a.id == articleId);
-            }
+
+        // Always attempt to load from JSON file
+        const response = await fetch('data/articles.json');
+        if (response.ok) {
+            const data = await response.json();
+            articleData = data.articles.find(a => a.id == articleId);
         }
-        
-        // If not found or file:// protocol, use fallback
+
+        // If article not found in JSON, fall back to inline data
         if (!articleData) {
+            console.warn(`Article ${articleId} not found in JSON, using fallback.`);
             articleData = getFallbackArticle(articleId);
         }
-        
+
         // Update page content
         updateArticlePage(articleData);
-        
+
     } catch (error) {
         console.error('Error loading article details:', error);
-        // Use fallback article 1
-        updateArticlePage(getFallbackArticle('1'));
+        // Use fallback data on any fetch/parse error
+        updateArticlePage(getFallbackArticle(articleId));
     }
 }
 
@@ -79,8 +101,37 @@ function updateArticlePage(article) {
         ).join('');
     }
     
-    // Update document title
+    // Update document title with correct em-dash
     document.title = `${article.title} — Pedro Pestana`;
+
+    // Wire up share buttons with the current article URL and title
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(article.title || '');
+
+    // Bluesky share button
+    const blueskyBtn = document.querySelector('.share-btn[aria-label="Share on Bluesky"]');
+    if (blueskyBtn) {
+        blueskyBtn.href = `https://bsky.app/intent/compose?text=${encodeURIComponent(pageTitle)}%20${encodeURIComponent(pageUrl)}`;
+        blueskyBtn.setAttribute('target', '_blank');
+        blueskyBtn.setAttribute('rel', 'noopener noreferrer');
+    }
+
+    // LinkedIn share button
+    const linkedinBtn = document.querySelector('.share-btn[aria-label="Share on LinkedIn"]');
+    if (linkedinBtn) {
+        linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+        linkedinBtn.setAttribute('target', '_blank');
+        linkedinBtn.setAttribute('rel', 'noopener noreferrer');
+    }
+
+    // Email share button
+    const emailBtn = document.querySelector('.share-btn[aria-label="Share by Email"]');
+    if (emailBtn) {
+        emailBtn.href = `mailto:?subject=${pageTitle}&body=Check%20out%20this%20article:%20${pageUrl}`;
+    }
+    
+    // SAFETY: Remove any featured badge that might have been added
+    removeFeaturedBadge();
 }
 
 /**
@@ -132,10 +183,20 @@ function getFallbackArticle(articleId) {
             date: "July 2023",
             readtime: "9 min read",
             tags: ["JavaScript", "Leaflet", "Web GIS", "Data Visualization"]
+        },
+        '6': {
+            id: 6,
+            title: "Real-time Spatial Data Streaming Architecture",
+            subtitle: "Designing systems for processing and visualizing live geospatial data streams",
+            category: "Spatial Data Engineering",
+            date: "May 2023",
+            readtime: "11 min read",
+            tags: ["Kafka", "WebSockets", "Real-time", "IoT", "Stream Processing"]
         }
     };
-    
-    return fallbackArticles[articleId] || fallbackArticles['1'];
+
+    // Return the requested article, or article 1 as a safe default
+    return fallbackArticles[String(articleId)] || fallbackArticles['1'];
 }
 
 /**
@@ -172,14 +233,12 @@ function initializeSaveButtons() {
     if (savePdfBtn) {
         savePdfBtn.addEventListener('click', function() {
             alert('In a production environment, this would generate and download a PDF version of the article.');
-            // In production: window.print() or generate PDF via API
         });
     }
     
     if (saveReadingListBtn) {
         saveReadingListBtn.addEventListener('click', function() {
             alert('Article added to your reading list!');
-            // In production: save to localStorage or send to backend
         });
     }
 }
