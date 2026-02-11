@@ -7,8 +7,16 @@
       "category": "Spatial Data Engineering",
       "date": "March 2024",
       "readtime": "12 min read",
-      "tags": ["PostGIS", "Python", "Data Pipelines", "Cloud Architecture", "Spatial Analysis", "ETL"],
-      "featured": true
+      "tags": [
+        "PostGIS",
+        "Python",
+        "Data Pipelines",
+        "Cloud Architecture",
+        "Spatial Analysis",
+        "ETL"
+      ],
+      "featured": true,
+      "excerpt": "An architectural overview of building robust ETL pipelines for spatial data, covering data ingestion, transformation, quality assurance, and deployment strategies for handling terabyte-scale geospatial datasets."
     },
     {
       "id": 2,
@@ -17,8 +25,14 @@
       "category": "GIS Automation",
       "date": "January 2024",
       "readtime": "8 min read",
-      "tags": ["QGIS", "Python", "Automation", "PyQGIS"],
-      "featured": false
+      "tags": [
+        "QGIS",
+        "Python",
+        "Automation",
+        "PyQGIS"
+      ],
+      "featured": false,
+      "excerpt": "A practical guide to scripting repetitive GIS tasks in QGIS using PyQGIS, with examples of batch processing, custom plugin development, and integration with external data sources."
     },
     {
       "id": 3,
@@ -27,8 +41,14 @@
       "category": "Remote Sensing",
       "date": "November 2023",
       "readtime": "10 min read",
-      "tags": ["Google Earth Engine", "JavaScript", "Remote Sensing", "Urban Analysis"],
-      "featured": false
+      "tags": [
+        "Google Earth Engine",
+        "JavaScript",
+        "Remote Sensing",
+        "Urban Analysis"
+      ],
+      "featured": false,
+      "excerpt": "Leveraging Landsat and Sentinel imagery to analyze urban expansion patterns over time, with code examples for NDVI calculation, change detection, and visualization of results."
     },
     {
       "id": 4,
@@ -37,8 +57,14 @@
       "category": "Spatial Databases",
       "date": "September 2023",
       "readtime": "15 min read",
-      "tags": ["PostGIS", "PostgreSQL", "Spatial SQL", "Performance"],
-      "featured": false
+      "tags": [
+        "PostGIS",
+        "PostgreSQL",
+        "Spatial SQL",
+        "Performance"
+      ],
+      "featured": false,
+      "excerpt": "Exploring advanced PostGIS functionality for complex spatial analysis, including nearest neighbour searches, network routing, spatial joins at scale, and performance optimization techniques."
     },
     {
       "id": 5,
@@ -47,8 +73,31 @@
       "category": "Web Mapping",
       "date": "July 2023",
       "readtime": "9 min read",
-      "tags": ["JavaScript", "Leaflet", "Web GIS", "Data Visualization"],
-      "featured": false
+      "tags": [
+        "JavaScript",
+        "Leaflet",
+        "Web GIS",
+        "Data Visualization"
+      ],
+      "featured": false,
+      "excerpt": "Architectural patterns for creating performant web mapping applications with real-time data visualization, focusing on Leaflet/Mapbox integration, data streaming, and responsive design."
+    },
+    {
+      "id": 6,
+      "title": "Real-time Spatial Data Streaming Architecture",
+      "subtitle": "Designing systems for processing and visualizing live geospatial data streams",
+      "category": "Spatial Data Engineering",
+      "date": "May 2023",
+      "readtime": "11 min read",
+      "tags": [
+        "Kafka",
+        "WebSockets",
+        "Real-time",
+        "IoT",
+        "Stream Processing"
+      ],
+      "featured": false,
+      "excerpt": "Designing systems for processing and visualizing live geospatial data streams from IoT sensors, mobile devices, and satellite feeds, with emphasis on low-latency requirements and fault tolerance."
     }
   ]
 }
