@@ -850,6 +850,7 @@ function createArticleCard(article, isFeatured = false) {
                 <div class="article-meta">
                     <span class="article-category">${article.category || 'General'}</span>
                     <span class="article-date">${article.date || 'N/A'}</span>
+                    ${article.readtime ? `<span class="article-readtime">${article.readtime}</span>` : ''}
                 </div>
                 <h2 class="article-title">${article.title || 'Untitled Article'}</h2>
                 <p class="article-excerpt">${article.excerpt || 'No excerpt available.'}</p>
@@ -858,7 +859,7 @@ function createArticleCard(article, isFeatured = false) {
             </div>
             <div class="article-visual">
                 <div class="placeholder-visual">
-                    <i class="fas fa-map-marked-alt"></i>
+                    <i class="fas fa-chart-network"></i>
                 </div>
             </div>
         `;
