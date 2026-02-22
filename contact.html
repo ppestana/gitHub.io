@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -45,7 +48,10 @@
         <div class="contact-container">
             <div class="contact-info">
                 <div class="contact-header">
-                    <img src="assets/profile.jpg" alt="Pedro Pestana" class="contact-photo">
+                    <div class="contact-photo-container">
+                        <img src="assets/Profile.JPG" alt="Pedro Pestana" class="contact-photo">
+                        <div id="contact-qr" class="contact-qr-code" title="Scan to save my contact"></div>
+                    </div>
                     <h2>Contact Information</h2>
                     <p class="contact-intro">Let's discuss your geospatial project or data engineering challenge.</p>
                 </div>
@@ -58,6 +64,7 @@
                         <div class="contact-details">
                             <h3>Email</h3>
                             <p>For project inquiries and collaboration</p>
+                           <!-- <a href="/cdn-cgi/l/email-protection#07777762747366696629606e7347606a666e6b2964686a" class="contact-link"><span class="__cf_email__" data-cfemail="e898988d9b9c898689c68f819ca88f85898184c68b8785">[email&#160;protected]</span></a>-->
                             <a href="mailto:ppestana.git@gmail.com" class="contact-link">ppestana.git@gmail.com</a>
                         </div>
                     </div>
@@ -219,7 +226,7 @@
     </footer>
 
     <!-- Main JavaScript -->
-    <script src="js/main.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
     
     <!-- CRITICAL: Load cookie consent at the END, BEFORE closing </body> tag -->
     <script src="js/cookie-consent.js"></script>
@@ -245,19 +252,71 @@
                     e.preventDefault();
                     
                     // In a production environment, this would send to a backend API
-                    // For this static version, we'll use mailto as a fallback
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-                    
-                    const mailtoLink = `mailto:ppestana.git@gmail.com?subject=${encodeURIComponent(subject)} - ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')')}`;
-                    
-                    // Show success message
-                    alert('Thank you for your message! In a production environment, this would be sent to a backend API. For now, you can send it directly via email.');
+                    alert('Thank you for your message!');
                     window.location.href = mailtoLink;
                 });
             }
+
+            // ═══ Compact vCard QR Code (next to photo) ═══
+            (async function() {
+    const vc = {
+        name: 'Pedro M Pestana',
+        title: 'GIS & Data Engineering Specialist',
+        email: 'ppestana.git@gmail.com',
+        phone: '+351917774636',
+        website: 'https://www.pedropestana.com',
+        linkedin: 'https://linkedin.com/in/pmpestana',
+        github: 'https://github.com/ppestana56',
+        location: 'Torres Vedras, Portugal'
+    };
+
+    function makeVCard() {
+        // vCard 2.1 é o "canivete suíço" para garantir a ordem correta no iOS
+        return [
+            'BEGIN:VCARD',
+            'VERSION:2.1',
+            `FN:${vc.name}`,
+            `N:Pestana;Pedro;M;;`,
+          //  `ORG:Pedro Pestana - Geospatial Systems`,
+            `TITLE:${vc.title}`,
+            `TEL;CELL;VOICE:${vc.phone.replace(/\s/g, '')}`,
+            `EMAIL;PREF;INTERNET:${vc.email}`,
+            `URL;WORK:${vc.website}`,
+            `URL;LinkedIn:${vc.linkedin}`,
+            `URL;GitHub:${vc.github}`,
+            `ADR;WORK:;;${vc.location};;;;`,
+            `NOTE:LinkedIn: ${vc.linkedin}`,
+            'END:VCARD'
+        ].join('\r\n');
+    }
+
+    const qrElement = document.getElementById('contact-qr');
+    if (qrElement) {
+        qrElement.innerHTML = ''; 
+        
+        const vcardData = makeVCard();
+        
+        new QRCode(qrElement, {
+            text: vcardData,
+            width: 140, 
+            height: 140,
+            colorDark: '#2563eb',
+            colorLight: '#ffffff',
+            // Nível M oferece o melhor equilíbrio para o sensor do iPhone SE
+            correctLevel: QRCode.CorrectLevel.M 
+        });
+
+        qrElement.onclick = () => {
+            const blob = new Blob([vcardData], {type: 'text/vcard;charset=utf-8'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Pedro_Pestana.vcf';
+            a.click();
+            URL.revokeObjectURL(url);
+        };
+    }
+})();
         });
     </script>
 </body>
