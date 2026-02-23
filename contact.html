@@ -15,32 +15,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <style>
-        /* Estilos específicos para garantir o alinhamento e visibilidade do QR */
-        .visual-header {
+        /* Estilos específicos para a área da foto e QR */
+        .visual-header-row {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
             margin-bottom: 30px;
-            flex-wrap: wrap; /* Garante que em ecrãs pequenos não quebre o layout */
         }
-        .qr-wrapper {
+        .qr-container-fixed {
             width: 140px;
             height: 140px;
-            background-color: white;
+            min-width: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: white;
             padding: 5px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            min-width: 140px; /* Previne que o flexbox encolha o QR */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        .contact-photo-custom {
+        .contact-photo-circle {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #2563eb;
+            display: block;
+            border: 3px solid #f0f2f5;
         }
     </style>
 </head>
@@ -74,9 +74,9 @@
         <div class="contact-container">
             <div class="contact-info">
                 <div class="contact-header">
-                    <div class="visual-header">
-                        <img src="assets/profile.jpg" alt="Pedro Pestana" class="contact-photo-custom">
-                        <div class="qr-wrapper">
+                    <div class="visual-header-row">
+                        <img src="assets/profile.jpg" alt="Pedro Pestana" class="contact-photo-circle">
+                        <div class="qr-container-fixed">
                             <div id="contact-qr"></div>
                         </div>
                     </div>
@@ -135,7 +135,37 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Pedro Pestana. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">PP</span>
+                        <span>Pedro Pestana</span>
+                    </a>
+                    <p class="footer-tagline">Geospatial Systems & Data Engineering</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Pedro Pestana. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -144,22 +174,26 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // vCard Data
+            const vc = {
+                name: 'Pedro M Pestana',
+                phone: '+351917774636',
+                email: 'ppestana.git@gmail.com',
+                website: 'https://www.pedropestana.com'
+            };
+
             const vcardData = [
                 'BEGIN:VCARD',
                 'VERSION:2.1',
-                'FN:Pedro M Pestana',
-                'TEL;CELL;VOICE:+351917774636',
-                'EMAIL;PREF;INTERNET:ppestana.git@gmail.com',
-                'URL:https://www.pedropestana.com',
+                `FN:${vc.name}`,
+                `TEL;CELL;VOICE:${vc.phone}`,
+                `EMAIL;PREF;INTERNET:${vc.email}`,
+                `URL:${vc.website}`,
                 'END:VCARD'
             ].join('\r\n');
 
             const qrElement = document.getElementById('contact-qr');
             if (qrElement) {
-                // Limpar qualquer conteúdo residual (como o círculo branco que viu)
                 qrElement.innerHTML = '';
-                
                 new QRCode(qrElement, {
                     text: vcardData,
                     width: 140,
