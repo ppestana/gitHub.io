@@ -261,75 +261,70 @@
 
           <!-- QR Code Generation Script -->
     <script>
-        
-        // ═══ vCard QR Code - CORRECTED ═══
-        (function() {
-            const vc = {
-                name: 'Pedro M Pestana',
-                title: 'GIS & Spatial Data Engineering Specialist',
-                email: 'ppestana.git@gmail.com',
-              //  phone: '+351917774636',
-                website: 'https://www.pedropestana.com',
-             //   linkedin: 'https://linkedin.com/in/pmpestana',
-             //   github: 'https://github.com/ppestana',
-             //   location: 'Torres Vedras, Portugal'
-            };
+       // ═══ vCard QR Code - VERSÃO FINAL INTEGRADA ═══
+(function() {
+    const vc = {
+        name: 'Pedro M Pestana',
+        title: 'GIS & Spatial Data Engineering Specialist',
+        email: 'ppestana.git@gmail.com',
+        website: 'https://www.pedropestana.com'
+        // Mantemos apenas os campos ativos para máxima compatibilidade
+    };
 
-            function makeVCard() {
-                return [
-                    'BEGIN:VCARD',
-                    'VERSION:3.0',
-                    'PRODID:-//Pedro Pestana//Contact Card//EN',
-                    `FN:${vc.name}`,
-                    `N:Pestana;Pedro;M;;`,
-                    `TITLE:${vc.title}`,
-                    `EMAIL;TYPE=INTERNET,PREF:${vc.email}`,
-                    `TEL;TYPE=CELL,VOICE:${vc.phone}`,
-                    `URL;TYPE=WORK:${vc.website}`,
-                    `URL;TYPE=LinkedIn:${vc.linkedin}`,
-                    `URL;TYPE=GitHub:${vc.github}`,
-                    `ADR;TYPE=WORK:;;${vc.location};;;;Portugal`,
-                   // `ORG:Pedro Pestana - Geospatial Systems`,
-                  //  `NOTE:LinkedIn: ${vc.linkedin}\\nGitHub: ${vc.github}`,
-                    `REV:${new Date().toISOString()}`,
-                    'END:VCARD'
-                ].join('\r\n');
-            }
+    // Gera a string do vCard sem campos 'undefined'
+    function makeVCard() {
+        const lines = [
+            'BEGIN:VCARD',
+            'VERSION:3.0',
+            `FN:${vc.name}`,
+            `N:Pestana;Pedro;M;;`,
+            `TITLE:${vc.title}`,
+            `EMAIL;TYPE=INTERNET,PREF:${vc.email}`,
+            `URL;TYPE=WORK:${vc.website}`,
+            `REV:${new Date().toISOString().replace(/[:.-]/g, '')}Z`,
+            'END:VCARD'
+        ];
+        return lines.join('\r\n');
+    }
 
-            function downloadVCard() {
-                const vcardData = makeVCard();
-                const blob = new Blob([vcardData], {type: 'text/vcard;charset=utf-8'});
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'Pedro_Pestana.vcf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
-            }
+    // Função que tinhas receio de perder (crucial para o botão)
+    function downloadVCard() {
+        const vcardData = makeVCard();
+        const blob = new Blob([vcardData], {type: 'text/vcard;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Pedro_Pestana.vcf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    }
 
-            const qrElement = document.getElementById('contact-qr');
-            if (qrElement && typeof QRCode !== 'undefined') {
-                qrElement.innerHTML = '';
-                new QRCode(qrElement, {
-                text: makeVCard(),
-                width: 150, // Aumentado de 120 para 150 para melhorar a definição
-                height: 150,
-                colorDark: '#000000', // Preto puro oferece o melhor contraste possível
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.Q // Nível de correção aumentado
-});
-            }
+    // Renderização do QR Code
+    const qrElement = document.getElementById('contact-qr');
+    if (qrElement && typeof QRCode !== 'undefined') {
+        qrElement.innerHTML = ''; // Limpa qualquer QR anterior
+        new QRCode(qrElement, {
+            text: makeVCard(),
+            width: 180, 
+            height: 180,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.Q
+        });
+    }
 
-            const downloadBtn = document.getElementById('qr-download-btn');
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    downloadVCard();
-                });
-            }
-        })();
+    // Ligação do botão de download à função
+    const downloadBtn = document.getElementById('qr-download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            downloadVCard();
+        });
+    }
+})(); 
+       
     </script>
 </body>
 </html>
