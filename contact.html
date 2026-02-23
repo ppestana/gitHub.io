@@ -20,6 +20,20 @@
     
     <!-- QR Code Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+    // Verificar se a biblioteca carregou
+    window.addEventListener('load', function() {
+        if (typeof QRCode === 'undefined') {
+            console.error('CRÍTICO: Biblioteca QRCode NÃO carregou!');
+            // Fallback - tenta carregar de outra fonte
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
+            document.head.appendChild(script);
+        } else {
+            console.log('Biblioteca QRCode carregada com sucesso');
+        }
+    });
+    </script>
 </head>
 <body>
     <!-- Navigation Bar (fora do head, dentro do body) -->
@@ -287,7 +301,7 @@
                 name: 'Pedro M Pestana',
                 title: 'GIS & Spatial Data Engineering Specialist',
                 email: 'ppestana.git@gmail.com',
-                phone: '+351 917 774 636',
+                phone: '+351917774636',
                 website: 'https://www.pedropestana.com',
                 linkedin: 'https://linkedin.com/in/pmpestana',
                 github: 'https://github.com/ppestana',
