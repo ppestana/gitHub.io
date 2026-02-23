@@ -4,15 +4,26 @@
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
-    justify-content: center;
+    justify-content: flex-start;  /* Alterado de 'center' para 'flex-start' */
+    flex-wrap: wrap;
+}
+
+.qr-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    max-width: 140px;
 }
 
 .contact-qr-code {
-    padding: 8px;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    line-height: 0;  /* Remove espaço extra */
+    padding: 0;      /* Remove o padding que criava o retângulo */
 }
 
 .contact-qr-code:hover {
@@ -20,14 +31,65 @@
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
+.contact-qr-code canvas,
 .contact-qr-code img {
     display: block;
+    width: 120px;    /* Reduzido ligeiramente para ficar mais compacto */
+    height: 120px;
+    border-radius: 4px;
+}
+
+.qr-label {
+    font-size: 0.75rem;  /* Reduzido */
+    color: #4b5563;
+    text-align: center;
+    max-width: 120px;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.qr-download-link {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.qr-download-link:hover {
+    color: #1d4ed8;
+}
+
+.qr-icon {
+    font-size: 0.9rem;
 }
 
 /* Ensure photo stays circular and sized correctly */
 .contact-photo {
-    width: 150px;
-    height: 150px;
+    width: 140px;     /* Reduzido ligeiramente para equilibrar */
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-photo-container {
+        justify-content: center;
+    }
+    
+    .qr-wrapper {
+        margin: 0 auto;
+    }
 }
