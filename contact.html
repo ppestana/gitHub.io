@@ -18,22 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
-    <!-- QR Code Library - CDN ALTERNATIVA (mais fiável) -->
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-    <script>
-    // Verificar se a biblioteca carregou
-    window.addEventListener('load', function() {
-        if (typeof QRCode === 'undefined') {
-            console.error('CRÍTICO: Biblioteca QRCode NÃO carregou!');
-            // Fallback - tenta carregar de outra fonte
-            var script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
-            document.head.appendChild(script);
-        } else {
-            console.log('Biblioteca QRCode carregada com sucesso');
-        }
-    });
-    </script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <!-- Navigation Bar (fora do head, dentro do body) -->
@@ -271,44 +257,22 @@
         });
     </script>
 
-      <!-- QR Code Generation Script -->
-<script>
-    // ═══ vCard QR Code - CORRECTED ═══
-    (function() {
-        'use strict'; // Boa prática
-
-        // --- 1. Aguardar que o DOM e a biblioteca estejam prontos ---
-        function initQRCode() {
-            // Verifica se a biblioteca e o elemento existem
-            if (typeof QRCode === 'undefined') {
-                console.warn('QRCode library not loaded yet. Retrying...');
-                setTimeout(initQRCode, 100); // Tenta novamente após 100ms
-                return;
-            }
-
-            const qrElement = document.getElementById('contact-qr');
-            if (!qrElement) {
-                console.error('Elemento #contact-qr não encontrado. Tentar novamente...');
-                setTimeout(initQRCode, 100);
-                return;
-            }
-
-            // Se a biblioteca e o elemento existem, podemos prosseguir.
-            console.log('QRCode library and element found. Generating QR Code...');
-
-            // --- 2. Dados do vCard (inalterados) ---
+          <!-- QR Code Generation Script -->
+    <script>
+        
+        // ═══ vCard QR Code - CORRECTED ═══
+        (function() {
             const vc = {
                 name: 'Pedro M Pestana',
                 title: 'GIS & Spatial Data Engineering Specialist',
                 email: 'ppestana.git@gmail.com',
-                phone: '+351917774636',
+                phone: '+351 917 774 636',
                 website: 'https://www.pedropestana.com',
                 linkedin: 'https://linkedin.com/in/pmpestana',
                 github: 'https://github.com/ppestana',
                 location: 'Torres Vedras, Portugal'
             };
 
-            // --- 3. Função makeVCard (inalterada) ---
             function makeVCard() {
                 return [
                     'BEGIN:VCARD',
@@ -330,7 +294,6 @@
                 ].join('\r\n');
             }
 
-            // --- 4. Função downloadVCard (inalterada) ---
             function downloadVCard() {
                 const vcardData = makeVCard();
                 const blob = new Blob([vcardData], {type: 'text/vcard;charset=utf-8'});
@@ -344,10 +307,9 @@
                 URL.revokeObjectURL(url);
             }
 
-            // --- 5. Gerar QR Code ---
-            // Limpa o conteúdo anterior (caso exista)
-            qrElement.innerHTML = '';
-            try {
+            const qrElement = document.getElementById('contact-qr');
+            if (qrElement && typeof QRCode !== 'undefined') {
+                qrElement.innerHTML = '';
                 new QRCode(qrElement, {
                     text: makeVCard(),
                     width: 120,
@@ -356,35 +318,17 @@
                     colorLight: '#ffffff',
                     correctLevel: QRCode.CorrectLevel.L
                 });
-                console.log('QR Code generated successfully.');
-            } catch (error) {
-                console.error('Error generating QR Code:', error);
             }
 
-            // --- 6. Configurar botão de download (inalterado) ---
             const downloadBtn = document.getElementById('qr-download-btn');
             if (downloadBtn) {
-                // Remove listeners antigos para evitar duplicados se este código correr mais que uma vez
-                downloadBtn.removeEventListener('click', downloadVCard);
                 downloadBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     downloadVCard();
                 });
-            } else {
-                console.warn('Botão #qr-download-btn não encontrado.');
             }
-        }
-
-        // --- Inicia o processo quando o DOM estiver pronto ---
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initQRCode);
-        } else {
-            // DOM já está carregado
-            initQRCode();
-        }
-
-    })();
-</script>    
+        })();
+    </script>
 </body>
 </html>
 }
