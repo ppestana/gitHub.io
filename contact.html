@@ -267,7 +267,9 @@
         name: 'Pedro M Pestana',
         title: 'GIS & Spatial Data Engineering Specialist',
         email: 'ppestana.git@gmail.com',
-        website: 'https://www.pedropestana.com'
+        website: 'https://www.pedropestana.com',
+        phone: '+351 917 774 636'
+
         // Mantemos apenas os campos ativos para máxima compatibilidade
     };
 
@@ -280,6 +282,7 @@
             `N:Pestana;Pedro;M;;`,
             `TITLE:${vc.title}`,
             `EMAIL;TYPE=INTERNET,PREF:${vc.email}`,
+            `TEL;TYPE=CELL,VOICE:${vc.phone}`,
             `URL;TYPE=WORK:${vc.website}`,
             `REV:${new Date().toISOString().replace(/[:.-]/g, '')}Z`,
             'END:VCARD'
