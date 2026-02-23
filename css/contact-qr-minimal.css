@@ -2,18 +2,18 @@
 .contact-photo-container {
     display: flex;
     align-items: center; /* Alinha verticalmente pelo centro */
-    gap: 25px;           /* Espaço ligeiramente maior entre foto e QR */
+    gap: 30px;           /* Espaço ligeiramente maior entre foto e QR */
     margin-bottom: 25px;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .qr-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    max-width: 200px; /* Aumentado de 140px para acomodar o QR maior */
+    gap: 8px;
+    width: 160px; /* Aumentado de 140px para acomodar o QR maior */
 }
 
 .contact-qr-code {
@@ -32,8 +32,8 @@
 .contact-qr-code canvas,
 .contact-qr-code img {
     display: block;
-    width: 180px !important; /* Deve ser idêntico ao 'width' no JavaScript */
-    height: 180px !important; /* Deve ser idêntico ao 'height' no JavaScript */
+    width: 140px !important; /* Deve ser idêntico ao 'width' no JavaScript */
+    height: 140px !important; /* Deve ser idêntico ao 'height' no JavaScript */
 }
 
 .qr-label {
@@ -78,7 +78,7 @@
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    display: block; 
+    flex-shrink: 0; 
 }
 
 /* Responsive */
