@@ -12,7 +12,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    width: 160px;
+    width: 120px;
     /* Pequeno ajuste para compensar a legenda e centrar o QUADRADO com a FOTO */
     transform: translateY(12px); 
 }
@@ -33,8 +33,8 @@
 .contact-qr-code canvas,
 .contact-qr-code img {
     display: block;
-    width: 140px !important;  /* Igual ao tamanho da foto */
-    height: 140px !important;
+    width: 100px !important;  /* Igual ao tamanho da foto */
+    height: 100px !important;
 }
 .qr-label {
     font-size: 0.75rem;
