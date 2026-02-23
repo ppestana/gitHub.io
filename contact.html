@@ -68,7 +68,7 @@
                         <div class="contact-details">
                             <h3>Email</h3>
                             <p>For project inquiries and collaboration</p>
-                            <a href="mailto:ppestana.git@gmail.com" class="contact-link">ppestana.git@gmail.com</a>
+                            <a href="/cdn-cgi/l/email-protection#1d6d6d786e697c737c337a74695d7a707c7471337e7270" class="contact-link"><span class="__cf_email__" data-cfemail="d6a6a6b3a5a2b7b8b7f8b1bfa296b1bbb7bfbaf8b5b9bb">[email&#160;protected]</span></a>
                         </div>
                     </div>
                     
@@ -229,7 +229,7 @@
     </footer>
 
     <!-- Main JavaScript -->
-    <script src="js/main.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
     
     <!-- Cookie Consent -->
     <script src="js/cookie-consent.js"></script>
@@ -248,134 +248,91 @@
         });
     </script>
 
-    <!-- QR Code Generation Script -->
+          <!-- QR Code Generation Script -->
     <script>
         // ═══ Compact vCard QR Code (next to photo) ═══
-        (async function() {
+        (function() {
+            // Configuração dos dados de contacto - versão simplificada e testada
             const vc = {
                 name: 'Pedro M Pestana',
-                title: 'GIS & Data Engineering Specialist',
                 email: 'ppestana.git@gmail.com',
                 phone: '+351917774636',
                 website: 'https://www.pedropestana.com',
+    <script>
+        // ═══ vCard QR Code - CORRECTED & COMPLETE ═══
+        (function() {
+            const vc = {
+                name: 'Pedro M Pestana',
+                title: 'GIS & Spatial Data Engineering Specialist',
+                email: 'ppestana.git@gmail.com',
+                phone: '+351 917 774 636',
+                website: 'https://www.pedropestana.com',
                 linkedin: 'https://linkedin.com/in/pmpestana',
                 github: 'https://github.com/ppestana',
-                location: 'Torres Vedras, Portugal',
-                photo: 'assets/profile.jpg'  // Verifique se o nome do ficheiro está correto
+                location: 'Torres Vedras, Portugal'
             };
 
-            // Converter foto para base64
-            async function getBase64Image(url) {
-                try {
-                    const response = await fetch(url);
-                    const blob = await response.blob();
-                    return new Promise((resolve, reject) => {
-                        const reader = new FileReader();
-                        reader.onloadend = () => resolve(reader.result.split(',')[1]);
-                        reader.onerror = reject;
-                        reader.readAsDataURL(blob);
-                    });
-                } catch (e) {
-                    console.warn('Could not load photo:', e);
-                    return null;
-                }
-            }
-
-            // Create vCard WITHOUT photo (for QR code - must be small)
-            function makeVCardForQR() {
+            // Create properly formatted vCard for maximum compatibility
+            function makeVCard() {
                 return [
                     'BEGIN:VCARD',
                     'VERSION:3.0',
+                    'PRODID:-//Pedro Pestana//Contact Card//EN',
                     `FN:${vc.name}`,
                     `N:Pestana;Pedro;M;;`,
-                    `EMAIL;TYPE=INTERNET,PREF:${vc.email}`,
-                    `TEL;TYPE=CELL,VOICE:${vc.phone.replace(/\s/g, '')}`,
                     `TITLE:${vc.title}`,
-                  //  `ORG:Pedro Pestana - Geospatial Systems`,
+                    `EMAIL;TYPE=INTERNET,PREF:${vc.email}`,
+                    `TEL;TYPE=CELL,VOICE:${vc.phone}`,
                     `URL;TYPE=WORK:${vc.website}`,
                     `URL;TYPE=LinkedIn:${vc.linkedin}`,
                     `URL;TYPE=GitHub:${vc.github}`,
-                    `ADR;TYPE=WORK:;;${vc.location};;;;`,
+                    `ADR;TYPE=WORK:;;${vc.location};;;;Portugal`,
+                    `ORG:Pedro Pestana - Geospatial Systems`,
+                    `NOTE:LinkedIn: ${vc.linkedin}\\nGitHub: ${vc.github}`,
+                    `REV:${new Date().toISOString()}`,
                     'END:VCARD'
                 ].join('\r\n');
             }
 
-            // Create vCard WITH photo (for download - can be large)
-            async function makeVCardWithPhoto() {
-                const photoBase64 = await getBase64Image(vc.photo);
-                
-                const vcard = [
-                    'BEGIN:VCARD',
-                    'VERSION:3.0',
-                    `FN:${vc.name}`,
-                    `N:Pestana;Pedro;M;;`,
-                    `EMAIL;TYPE=INTERNET,PREF:${vc.email}`,
-                    `TEL;TYPE=CELL,VOICE:${vc.phone.replace(/\s/g, '')}`,
-                    `TITLE:${vc.title}`,
-                    `ORG:Pedro Pestana - Geospatial Systems`,
-                    `URL;TYPE=WORK:${vc.website}`,
-                    `ADR;TYPE=WORK:;;${vc.location};;;;`,
-                    `NOTE:LinkedIn: ${vc.linkedin}\\nGitHub: ${vc.github}`
-                ];
-
-                if (photoBase64) {
-                    vcard.push(`PHOTO;ENCODING=b;TYPE=JPEG:${photoBase64}`);
-                }
-
-                vcard.push('END:VCARD');
-                return vcard.join('\r\n');
+            // Download vCard function
+            function downloadVCard() {
+                const vcardData = makeVCard();
+                const blob = new Blob([vcardData], {type: 'text/vcard;charset=utf-8'});
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Pedro_Pestana.vcf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
             }
 
+            // Generate QR Code
             const qrElement = document.getElementById('contact-qr');
             if (qrElement) {
-                // Limpar conteúdo anterior
-                qrElement.innerHTML = ''; 
+                qrElement.innerHTML = '';
                 
-                // Pequeno delay para garantir que o DOM está pronto
-                setTimeout(() => {
-                    try {
-                        // Use vCard WITHOUT photo for QR (small enough to encode)
-                        const vcardData = makeVCardForQR();
-                        
-                        // Verificar se a biblioteca está carregada
-                        if (typeof QRCode !== 'undefined') {
-                            new QRCode(qrElement, {
-                                text: vcardData,
-                                width: 140, 
-                                height: 140,
-                                colorDark: '#2563eb',
-                                colorLight: '#ffffff',
-                                correctLevel: QRCode.CorrectLevel.M 
-                            });
-                            
-                            console.log('QR Code gerado com sucesso!');
-                        } else {
-                            console.error('Biblioteca QRCode não carregada!');
-                            qrElement.innerHTML = 'Erro ao carregar QR';
-                        }
-                    } catch (error) {
-                        console.error('Erro ao gerar QR Code:', error);
-                        qrElement.innerHTML = 'Erro';
-                    }
-                }, 100);
+                const vcardData = makeVCard();
+                
+                new QRCode(qrElement, {
+                    text: vcardData,
+                    width: 120,
+                    height: 120,
+                    colorDark: '#2563eb',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.L
+                });
+            }
 
-                // Click downloads vCard WITH photo
-                qrElement.onclick = async () => {
-                    try {
-                        const vcardData = await makeVCardWithPhoto();
-                        const blob = new Blob([vcardData], {type: 'text/vcard;charset=utf-8'});
-                        const url = URL.createObjectURL(blob);
-                        const link = document.createElement('a');
-                        link.href = url;
-                        link.download = 'Pedro_Pestana.vcf';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        URL.revokeObjectURL(url);
-                    } catch (error) {
-                        console.error('Erro ao baixar vCard:', error);
-                    }
-                };
+            // Attach download to button
+            const downloadBtn = document.getElementById('qr-download-btn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    downloadVCard();
+                });
             }
         })();
     </script>
