@@ -13,13 +13,13 @@
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    max-width: 140px;
+    max-width: 200px; /* Aumentado de 140px para acomodar o QR maior */
 }
 
 .contact-qr-code {
     background: white;
     border-radius: 4px;
-    padding: 10px; /* ESSENCIAL: Cria a zona de silêncio para a câmara */
+    padding: 10px; /* Mantém a "Quiet Zone" essencial para a câmara */
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     display: inline-block;
 }
@@ -32,8 +32,8 @@
 .contact-qr-code canvas,
 .contact-qr-code img {
     display: block;
-    width: 130px !important; /* Ajuste para o novo tamanho */
-    height: 130px !important;
+    width: 180px !important; /* Deve ser idêntico ao 'width' no JavaScript */
+    height: 180px !important; /* Deve ser idêntico ao 'height' no JavaScript */
 }
 
 .qr-label {
