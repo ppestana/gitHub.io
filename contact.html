@@ -238,7 +238,9 @@
     </footer>
 
     <!-- Main JavaScript -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+   <!---- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <-->
+    <script src="js/main.js"></script>
     
     <!-- Cookie Consent -->
     <script src="js/cookie-consent.js"></script>
@@ -311,13 +313,13 @@
             if (qrElement && typeof QRCode !== 'undefined') {
                 qrElement.innerHTML = '';
                 new QRCode(qrElement, {
-                    text: makeVCard(),
-                    width: 120,
-                    height: 120,
-                    colorDark: '#2563eb',
-                    colorLight: '#ffffff',
-                    correctLevel: QRCode.CorrectLevel.L
-                });
+                text: makeVCard(),
+                width: 150, // Aumentado de 120 para 150 para melhorar a definição
+                height: 150,
+                colorDark: '#000000', // Preto puro oferece o melhor contraste possível
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.Q // Nível de correção aumentado
+});
             }
 
             const downloadBtn = document.getElementById('qr-download-btn');
