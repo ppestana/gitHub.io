@@ -18,12 +18,10 @@
 
 .contact-qr-code {
     background: white;
-    border-radius: 6px;
+    border-radius: 4px;
+    padding: 10px; /* ESSENCIAL: Cria a zona de silêncio para a câmara */
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    line-height: 0;  /* Remove espaço extra */
-    padding: 0;      /* Remove o padding que criava o retângulo */
+    display: inline-block;
 }
 
 .contact-qr-code:hover {
@@ -34,9 +32,8 @@
 .contact-qr-code canvas,
 .contact-qr-code img {
     display: block;
-    width: 120px;    /* Reduzido ligeiramente para ficar mais compacto */
-    height: 120px;
-    border-radius: 4px;
+    width: 130px !important; /* Ajuste para o novo tamanho */
+    height: 130px !important;
 }
 
 .qr-label {
