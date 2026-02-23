@@ -65,7 +65,7 @@
                             <h3>Email</h3>
                             <p>For project inquiries and collaboration</p>
                            <!-- <a href="/cdn-cgi/l/email-protection#07777762747366696629606e7347606a666e6b2964686a" class="contact-link"><span class="__cf_email__" data-cfemail="e898988d9b9c898689c68f819ca88f85898184c68b8785">[email&#160;protected]</span></a>-->
-                            <a href="mailto:ppestana.git@gmail.com" class="contact-link">ppestana.git@gmail.com</a>
+                            <a href="/cdn-cgi/l/email-protection#e79797829493868986c9808e93a7808a868e8bc984888a" class="contact-link"><span class="__cf_email__" data-cfemail="bacacadfc9cedbd4db94ddd3cefaddd7dbd3d694d9d5d7">[email&#160;protected]</span></a>
                         </div>
                     </div>
                     
@@ -226,7 +226,7 @@
     </footer>
 
     <!-- Main JavaScript -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
     
     <!-- CRITICAL: Load cookie consent at the END, BEFORE closing </body> tag -->
     <script src="js/cookie-consent.js"></script>
@@ -289,7 +289,26 @@
                     }
                 }
 
-                async function makeVCard() {
+                // Create vCard WITHOUT photo (for QR code - must be small)
+                function makeVCardForQR() {
+                    return [
+                        'BEGIN:VCARD',
+                        'VERSION:3.0',
+                        `FN:${vc.name}`,
+                        `N:Pestana;Pedro;M;;`,
+                        `EMAIL;TYPE=INTERNET,PREF:${vc.email}`,
+                        `TEL;TYPE=CELL,VOICE:${vc.phone.replace(/\s/g, '')}`,
+                        `TITLE:${vc.title}`,
+                        `ORG:Pedro Pestana - Geospatial Systems`,
+                        `URL;TYPE=WORK:${vc.website}`,
+                        `ADR;TYPE=WORK:;;${vc.location};;;;`,
+                        `NOTE:LinkedIn: ${vc.linkedin}\\nGitHub: ${vc.github}`,
+                        'END:VCARD'
+                    ].join('\r\n');
+                }
+
+                // Create vCard WITH photo (for download - can be large)
+                async function makeVCardWithPhoto() {
                     const photoBase64 = await getBase64Image(vc.photo);
                     
                     const vcard = [
@@ -318,7 +337,8 @@
                 if (qrElement) {
                     qrElement.innerHTML = ''; 
                     
-                    const vcardData = await makeVCard();
+                    // Use vCard WITHOUT photo for QR (small enough to encode)
+                    const vcardData = makeVCardForQR();
                     
                     new QRCode(qrElement, {
                         text: vcardData,
@@ -329,21 +349,12 @@
                         correctLevel: QRCode.CorrectLevel.M 
                     });
 
+                    // Click downloads vCard WITH photo
                     qrElement.onclick = async () => {
-                        const vcardData = await makeVCard();
+                        const vcardData = await makeVCardWithPhoto();
                         const blob = new Blob([vcardData], {type: 'text/vcard;charset=utf-8'});
                         const url = URL.createObjectURL(blob);
                         const link = document.createElement('a');
                         link.href = url;
                         link.download = 'Pedro_Pestana.vcf';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        URL.revokeObjectURL(url);
-                    };
-                }
-            })();
-        });
-    </script>
-</body>
-</html>
+                        document.body.appendChild(link
