@@ -46,15 +46,6 @@
         <div class="contact-container">
             <div class="contact-info">
                 <div class="contact-header">
-                    <div class="contact-photo-container">
-                        <img src="assets/profile.jpg" alt="Pedro Pestana" class="contact-photo">
-                        <div class="dotcards-wrapper">
-                            <a href="https://dot.cards/ppestana" target="_blank" rel="noopener noreferrer" class="dotcards-link">
-                                <i class="fas fa-address-card dotcards-icon"></i>
-                                <span class="dotcards-text">View Digital Card</span>
-                            </a>
-                        </div>
-                    </div>
                     <h2>Contact Information</h2>
                     <p class="contact-intro">Let's discuss your geospatial project or data engineering challenge.</p>
                 </div>
@@ -62,12 +53,14 @@
                 <div class="contact-methods">
                     <div class="contact-method">
                         <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-address-card"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>For project inquiries and collaboration</p>
-                            <a href="/cdn-cgi/l/email-protection#aededecbdddacfc0cf80c9c7daeec9c3cfc7c280cdc1c3" class="contact-link"><span class="__cf_email__" data-cfemail="87f7f7e2f4f3e6e9e6a9e0eef3c7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a>
+                            <h3>Digital Business Card</h3>
+                            <p>View my complete contact information and connect</p>
+                            <a href="https://dot.cards/ppestana" target="_blank" rel="noopener noreferrer" class="contact-link dotcards-button">
+                                <i class="fas fa-external-link-alt"></i> View Digital Card
+                            </a>
                         </div>
                     </div>
                     
@@ -219,7 +212,7 @@
     <!-- Main JavaScript -->
    <!---- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <-->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
     
     <!-- Cookie Consent -->
     <script src="js/cookie-consent.js"></script>
@@ -253,13 +246,4 @@
                     const subject = document.getElementById('subject').value;
                     const message = document.getElementById('message').value;
                     
-                    const mailtoLink = `mailto:ppestana.git@gmail.com?subject=${encodeURIComponent(subject)} - ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')')}`;
-                    
-                    alert('Thank you for your message!');
-                    window.location.href = mailtoLink;
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+                    const mailtoLink = `mailto:ppestana.git@gmail.com?subject=${encodeURIComponent(subject)} - ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nF
